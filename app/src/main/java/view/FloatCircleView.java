@@ -91,7 +91,7 @@ public class FloatCircleView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (isDrag) {//在拖动将样式更改！
+        if (isDrag) {//在拖动将样式更改。
             canvas.drawBitmap(dragsrc, 0, 0, null);
         } else {
             bitmapCanvas.drawCircle(width / 2, heiight / 2, CommonUtil.dip2px(context, 30), circlePaint);
