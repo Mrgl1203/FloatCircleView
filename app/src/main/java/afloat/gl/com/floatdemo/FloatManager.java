@@ -50,20 +50,7 @@ public class FloatManager {
         return instance;
     }
 
-    //展示浮窗小球
-    public void createFloatCircleView() {
-        isShowing = true;
-        lp = new WindowManager.LayoutParams();
-        lp.width = floatCircleView.width;
-        lp.height = floatCircleView.heiight;
-        lp.gravity = Gravity.TOP | Gravity.LEFT;
-        lp.x = 0;
-        lp.y = 0;
-        lp.type = WindowManager.LayoutParams.TYPE_PHONE;//设置成像来电一样悬浮在其他应用上面
-        lp.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;//不获取其他应用的焦点和触摸
-        lp.format = PixelFormat.RGBA_8888;//设置背景为透明
-        wm.addView(floatCircleView, lp);
-    }
+
 
     public void hideFloatCircleView() {
         isShowing = false;
@@ -77,6 +64,21 @@ public class FloatManager {
 
     public boolean isFloatShowing() {
         return isShowing;
+    }
+
+    //展示浮窗小球
+    public void createFloatCircleView() {
+        isShowing = true;
+        lp = new WindowManager.LayoutParams();
+        lp.width = floatCircleView.width;
+        lp.height = floatCircleView.heiight;
+        lp.gravity = Gravity.TOP | Gravity.LEFT;
+        lp.x = 0;
+        lp.y = 0;
+        lp.type = WindowManager.LayoutParams.TYPE_PHONE;//设置成像来电一样悬浮在其他应用上面
+        lp.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;//不获取其他应用的焦点和触摸
+        lp.format = PixelFormat.RGBA_8888;//设置背景为透明
+        wm.addView(floatCircleView, lp);
     }
 
     //点击事件和触摸事件会同时触发，需要对用户滑动做判断将时间消费掉
